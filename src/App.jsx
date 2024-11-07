@@ -3,8 +3,10 @@ import Login from "./components/auth/Login";
 import AdminDashboard from "./components/dashboard/AdminDashboard";
 import EmployeeDashboard from "./components/dashboard/EmployeeDashboard";
 import { AuthContext } from "./context/AuthProvider";
+import { setLocalStorage } from "./utils/localStorage";
 
 const App = () => {
+  setLocalStorage()
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,10 +19,15 @@ const App = () => {
       if (storedUser) {
         const parsedUser = JSON.parse(storedUser);
         setUser(parsedUser.role);
+        // Retrieve and set the logged-in user data from localStorage
+        const storedUserData = localStorage.getItem("loggedInUserData");
+        if (storedUserData) {
+          setLoggedInUserData(JSON.parse(storedUserData));
+        }
       }
       setLoading(false);
     }
-  }, [authData]); // Dependency on authData to ensure it runs when authData is fully loaded
+  }, [authData]);
 
   const handleLogin = (email, password) => {
     if (authData) {
@@ -35,6 +42,7 @@ const App = () => {
       if (adminCheck) {
         setUser("admin");
         localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
+        localStorage.setItem("loggedInUserData", JSON.stringify(adminCheck)); // Store admin data
         setLoggedInUserData(adminCheck);
       } else if (employeeCheck) {
         setUser("employee");
@@ -42,6 +50,7 @@ const App = () => {
           "loggedInUser",
           JSON.stringify({ role: "employee" })
         );
+        localStorage.setItem("loggedInUserData", JSON.stringify(employeeCheck)); // Store employee data
         setLoggedInUserData(employeeCheck);
       } else {
         alert("Invalid email or password");

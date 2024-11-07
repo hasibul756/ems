@@ -1,10 +1,10 @@
 import { tasks, taskStats } from "../../constants";
 
-const TaskListCards = () => {
+const TaskListCards = ({loggedInUserData}) => {
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-3 px-4">
       {taskStats.map((stat) => {
-        const taskCount  = tasks.filter((task) => task.status === stat.status).length
+        const taskCount  = tasks.filter((task) => task.status === stat.status && task.assignto === loggedInUserData.id ).length
         return (
           <div
             key={stat.id}

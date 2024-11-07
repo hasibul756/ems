@@ -2,40 +2,40 @@
 export const employees = [
   {
     id: 1,
-    name: "john doe",
-    email: "employee1@me.com",
+    name: "rajan kumar",
+    email: "emp1@me.com",
     password: "123",
     role: "employee",
     status: "active",
   },
   {
     id: 2,
-    name: "jane smith",
-    email: "employee2@me.com",
+    name: "anita patel",
+    email: "emp2@me.com",
     password: "123",
     role: "employee",
     status: "active",
   },
   {
     id: 3,
-    name: "alice johnson",
-    email: "employee3@me.com",
+    name: "vikram singh",
+    email: "emp3@me.com",
     password: "123",
     role: "employee",
     status: "active",
   },
   {
     id: 4,
-    name: "bob brown",
-    email: "employee4@me.com",
+    name: "priya sharma",
+    email: "emp4@me.com",
     password: "123",
     role: "employee",
     status: "active",
   },
   {
     id: 5,
-    name: "charlie davis",
-    email: "employee5@me.com",
+    name: "rahul deshmukh",
+    email: "emp5@me.com",
     password: "123",
     role: "employee",
     status: "active",
@@ -132,12 +132,22 @@ export const bgColors = [
 
 // Task Stats
 export const taskStats = [
-  { id: 1, title: "Pending Tasks", status: "pending", background: "bg-blue-600" },
-  { id: 2, title: "In Progress Tasks", status: "in progress", background: "bg-yellow-500" },
-  { id: 3, title: "Completed Tasks", status: "completed", background: "bg-green-500" },
+  {
+    id: 1,
+    title: "Pending Tasks",
+    status: "pending",
+    background: "bg-blue-600",
+  },
+  {
+    id: 2,
+    title: "In Progress Tasks",
+    status: "in progress",
+    background: "bg-yellow-500",
+  },
+  {
+    id: 3,
+    title: "Completed Tasks",
+    status: "completed",
+    background: "bg-green-500",
+  },
 ];
-
-
-
-
-
